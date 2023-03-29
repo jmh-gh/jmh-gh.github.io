@@ -42,6 +42,52 @@
       </tags>
   </entry>
   <entry>
+    <title>捡垃圾——戴尔venue11pro7130</title>
+    <url>/2023/03/29/%E6%8D%A1%E5%9E%83%E5%9C%BE%E2%80%94%E2%80%94%E6%88%B4%E5%B0%94venue11pro7130/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试。" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="707de7994082f7d5c2b351225affa846be8b283f79bda54c08973ae7596b9855">b941bce4bf0722f60684d37ddd9a0628c267d6d780c2641589c04d465373aa7a7ce142e31fe8f4856f7be6bb5cc1c77f90d93759bcc352b2524572d6f9226c47f24f29a48d19b83f80ee4aefd3808388</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>硬件</category>
+      </categories>
+      <tags>
+        <tag>硬件</tag>
+        <tag>折腾（bushi）</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>笔记本安装win10+manjaro双系统</title>
+    <url>/2023/03/29/%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%AE%89%E8%A3%85win10-manjaro%E5%8F%8C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试。" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="707de7994082f7d5c2b351225affa846be8b283f79bda54c08973ae7596b9855">b941bce4bf0722f60684d37ddd9a0628c267d6d780c2641589c04d465373aa7a7ce142e31fe8f4856f7be6bb5cc1c77f90d93759bcc352b2524572d6f9226c47f24f29a48d19b83f80ee4aefd3808388</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码。</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>linux系统</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记一次有意义的春节假期</title>
     <url>/2023/03/29/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E6%98%A5%E8%8A%82%E5%81%87%E6%9C%9F/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试。" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -60,9 +106,9 @@
         <category>硬件</category>
       </categories>
       <tags>
-        <tag>计算机网络</tag>
         <tag>硬件</tag>
         <tag>折腾（bushi）</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
 </search>
