@@ -4,7 +4,7 @@
     <title>hello-world</title>
     <url>/2050/04/07/hello-world-1/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试。" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="f590d0a24f366fb3a1f68cbae8b6393825b8c94d90351e282b1b7d85649983b2">b941bce4bf0722f60684d37ddd9a0628832e5fc49531bf84aa66426ef5827c0c61784a7b18a606a1e9b33cf7e3b11a76e06cb8cc36e678e72c46d3a1ab58ab3515bd8471236d6988c2ebcb1cefd30e27</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="fcd61f08c1e79c1a437970b0a1a92ea30bc15c556fe8a2f0c001e132ce81870e">b941bce4bf0722f60684d37ddd9a0628832e5fc49531bf84aa66426ef5827c0c61784a7b18a606a1e9b33cf7e3b11a76e06cb8cc36e678e72c46d3a1ab58ab358fca0543d77450a42c8ffd0c9494c84c61f69d08fc5898319dc1d43cd222a7582bdeca4992b35099a014fd055b2f095be23f21f218ebb4a1679b99293aeacc0129770e38e85f7d4a83c03dff1836d36bd2de610fe8d4ee91aa285ea44f15d7d2798f9cad1e65f5d50fcab689adb79fb556c3030a0df711444b24205df511bba70008dcbe21936252dc1ee39342e689b6cad1489a79ad4638e8e9e5c7c90f2caed7a095d1cb5716f71d7480332588a9a3ba04dbd3ecc3f2dd97145eee26d44a793405ed4ca0431e5844f1ab494cba557e8afcda31453724ebd151e5b442a695e852277490285a93418ca036fc80c8b76e03ce3324275e8c41d8545af897526b91</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -20,6 +20,8 @@
     <title>Hello World</title>
     <url>/2023/03/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
 <h2 id="Hello-myHexo"><a href="#Hello-myHexo" class="headerlink" title="Hello myHexo"></a>Hello myHexo</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
