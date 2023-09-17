@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"techjmh.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+    
+    <meta name="description" content="STM32智能垃圾分类系统（basic1）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STM32智能垃圾分类系统（basic1）">
+<meta property="og:url" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/index.html">
+<meta property="og:site_name" content="JMHblog">
+<meta property="og:description" content="STM32智能垃圾分类系统（basic1）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/xtkt2023-09-17172820.jpg">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image.png">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-1.png">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-2.png">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-3.png">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-4.png">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/read2023-09-16233415.jpg">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/available2023-09-16.jpg">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/irq2023-09-17000148.jpg">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/irqd02023-09-17000305.jpg">
+<meta property="og:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/storechar2023-09-000017.jpg">
+<meta property="article:published_time" content="2023-09-17T03:37:25.000Z">
+<meta property="article:modified_time" content="2023-09-17T12:29:16.556Z">
+<meta property="article:author" content="Jmh">
+<meta property="article:tag" content="硬件">
+<meta property="article:tag" content="嵌入式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/xtkt2023-09-17172820.jpg">
+
+
+<link rel="canonical" href="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/","path":"2023/09/17/STM32智能垃圾分类系统（basic1）/","title":"STM32智能垃圾分类系统（basic1）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>STM32智能垃圾分类系统（basic1） | JMHblog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">JMHblog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">STM32智能垃圾分类系统（basic1）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E7%9C%8B%E6%BC%94%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">先看演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A5%E7%94%B1"><span class="nav-number">1.2.</span> <span class="nav-text">来由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E5%8A%A8"><span class="nav-number">1.3.</span> <span class="nav-text">改动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">1.4.</span> <span class="nav-text">正文</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jmh</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jmh-gh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jmh-gh" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2106805431@qq.com" title="E-Mail → mailto:2106805431@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://techjmh.eu.org/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jmh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JMHblog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="STM32智能垃圾分类系统（basic1） | JMHblog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STM32智能垃圾分类系统（basic1）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-09-17 11:37:25 / 修改时间：20:29:16" itemprop="dateCreated datePublished" datetime="2023-09-17T11:37:25+08:00">2023-09-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A1%AC%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">硬件</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="STM32智能垃圾分类系统（basic1）"><a href="#STM32智能垃圾分类系统（basic1）" class="headerlink" title="STM32智能垃圾分类系统（basic1）"></a>STM32智能垃圾分类系统（basic1）</h2><span id="more"></span>
+
+<h3 id="先看演示"><a href="#先看演示" class="headerlink" title="先看演示"></a>先看演示</h3><iframe src="//player.bilibili.com/player.html?aid=916022034&bvid=BV1wu4y1r7tX&cid=1269924999&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="来由"><a href="#来由" class="headerlink" title="来由"></a>来由</h3><p>学完了江科大STM32的教程，想做个项目顺便总结一下。所以就在网上找了一个简单点的项目复刻。这个垃圾分类项目原作者用的是LD3320语音模块，然后还用纽扣电池做了个时钟来实现多种投放模式。但好像不能调时间，要调就只能重新下载程序。我觉得这个不太合理使用暂时就没有一起搬过来。所以就先做了这个只有基础功能的版本，后续有时间会移植freertos并加入esp8266联网实现原项目的多种投放模式以及类似NTP校时的功能。</p>
+<h3 id="改动"><a href="#改动" class="headerlink" title="改动"></a>改动</h3><p>1.我把原项目的LD3320换成了asrpro（2M版本），因为上网搜了一下LD3320效果一般般，关键是价格还要52，加个喇叭就60了，比C8T6板子还贵[doge]。而asrpro加上咪头喇叭也才16，而且效果也不错。</p>
+<blockquote>
+<p>asrpro可以使用类似于scratch的模块化编程，也开放了一些源码，官方提供了天问Block和网页版的IDE。唯一的缺点就是生成模型需要联网并且3分钟内只能生成一次（只修改代码不改语音不用），不过也够用了。</p>
+<blockquote>
+<p>参数：32 位高性能 CPU，运行频率最高支持 240MHz，内置 640KB SRAM，内置2MB&#x2F;4MB Flash两种规格，支持 DNN\TDNN\RNN 等神经网络及卷积计算，支持语音识别、声纹识别、语音增强、语音检测等功能。<br>并且内置3路 UART 接口，1 路 IIC 接口，6 路 PWM 接口，内置 4 组 32-bit timer还有10个GPIO口。<br>所以如果只需要实现一些简单的小功能的话一块asrpro的板子就够了。不过因为核心板并没有引出那么多引脚，再加上有些引脚已经被喇叭驱动和麦克风电路给占用了。因此在本项目中就把asrpro和咪头音响当做外设了，通过串口和C8T6通信。</p>
+</blockquote>
+</blockquote>
+<p>2.原项目用的是spi的显示屏，我用的I2C，原理都差不多，就是给显示驱动芯片发命令和数据。</p>
+<p>3.还有就是原项目中使用delay模块来实现10秒后关盖，我觉得这样不太合理。在主函数使用delay会导致线程阻塞，需要等关盖后才才能进行其它操作。所以我改成了使用STM32的通用定时器并定义四个计数变量来实现相互独立开关盖。</p>
+<p>4.最后就是这个项目因为不需要演示给导师看，所以就自己在面包板上简单的搭建了一下，没打印电路板。剩下的三个舵机和垃圾桶模型也没买[doge]。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>首先是简单的系统框图<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/xtkt2023-09-17172820.jpg" alt="系统框图"></p>
+<blockquote>
+<p>材料包括：STM32F103C8T6最小系统板、asrpro（2M）、4015咪头、8欧3W喇叭、3*6*4.3mm两脚按键、0.96寸OLED显示屏还有面包板飞线。<br>此外还需要ch340用来现在程序，STLink用来调试STM32（选配）。</p>
+</blockquote>
+<p>主程序运行在C8T6开发板上，使用keil5开发，程序里包含了key驱动、舵机驱动、显示屏驱动(软件I2C)、asrpro驱动（基于串口）、定时器程序和主程序。<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image.png" alt="程序"><br>OLED_Font_CN.h是中文字库，直接用中景园资料里配的取模工具转成数组，输出格式选C51方便一点。<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-1.png" alt="字库"></p>
+<p>关于四个垃圾桶独立开关盖的功能我是用通用定时器来实现的，在舵机驱动里包含了计时器的头文件，（计时器里就是开启TIM2设置1秒溢出一次并开启NVIC）并定义8个变量用来存储标致位和计数。<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-2.png" alt="Alt text"><br>flag置1每次进中断就计数，到了10秒把flag和count清零<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-3.png" alt="Alt text"><br>这样就可以实现独立的开关了，相当于主函数只需要发出开启和开始计时命令，到了10秒进中断垃圾桶自动关。后续如果移植了Freertos应该实现起来会简单点。</p>
+<p>asrpro的驱动的串口数据用的是自己定义的格式，先一个字节表示数据类型，比如第一个字节01发给STM32表示接下来要发两个字节，一个表示垃圾类别，一个表示语音识别id。STM32第一个字节01发给asrpro表示接下来将发送一个字节表示播放id。这样做的目的是方便之后拓展其它功能。<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/image-4.png" alt="Alt text"><br>STM32的接收程序里也使用了状态机的编程思想，同样是方便以后拓展更多功能。</p>
+<p>asrpro收到后需要自己焊一下排针，我没啥技巧，多弄点松香或者助焊剂就非常好焊。咪头商家配的4015，官方也有建议的参数<code>为保障好的语音识别效果，建议采用灵敏度为-32±3dB，信噪比≥65dB的麦克风</code>喇叭配的8欧3W 3070腔体的喇叭，喇叭和麦克风也可以根据需要换用更合适的。</p>
+<p>asrpro程序就非常简单了，就识别相应的垃圾名称并通过串口发送，以及在串口接收到数据后播报相应的语音。在程序接收数据这边遇到了一个小问题，一开始的代码是检测到串口有数据后连着接收两个字节，但这会出现一个问题。就是有一定的概率会受到<code>数据1 FF 数据2 FF</code>这样的数据。<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/read2023-09-16233415.jpg" alt="Alt text"><br>查看源码发现函数read发现串口缓冲队列没有数据会返回-1对应十六进制FF。所以应该是程序运行过快导致第二个数据还没放进缓冲区read就被调用了。解决办法是在两次读取之间加入1ms的延时，但这样不太严谨。第二种办法就是调用读取字符串的函数，但因为没有<code>/0</code>作为结尾，所以需要设置更短的串口超时时间以减少等待。最后一种办法，也就是我用的办法。在接收第二个字节前再调用available判断一下。这边是available的源码<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/available2023-09-16.jpg" alt="Alt text"><br>是判断一个循环队列里有没有新的数据进来，这个一个让中断向量进行二次跳转，执行指定的函数。<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/irq2023-09-17000148.jpg" alt="Alt text"><br>这边是中断函数<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/irqd02023-09-17000305.jpg" alt="Alt text"><br>拷贝串口收到的数据到缓冲队列<br><img src="/2023/09/17/STM32%E6%99%BA%E8%83%BD%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E7%B3%BB%E7%BB%9F%EF%BC%88basic1%EF%BC%89/storechar2023-09-000017.jpg" alt="Alt text"><br>所以需要使用<code>while(serial.available)&#123;&#125;</code>来等待下一个字节。不过实际测试这样写代码会出现问题，第一次可以正常收到，之后就不一定了，可能会直接程序卡死，啥也收不到。参考官方给出的程序示例，应该是需要在循环里加入一些比好耗时的操作或者直接delay个一两毫秒。</p>
+<p>当然这只是一个实现了基础功能的版本，后续还会加入更多功能，比如加入纽扣电池实现断电后时钟继续运行，加入esp8266实现手机控制和类似NTP校时的功能，以及移植freertos等。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i><!--#--> 硬件</a>
+              <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i><!--#--> 嵌入式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/27/Industrial-Bank/" rel="prev" title="Industrial Bank">
+                  <i class="fa fa-chevron-left"></i> Industrial Bank
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2050/04/05/%E8%8D%89%E7%A8%BF/" rel="next" title="草稿">
+                  草稿 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jmh</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">41k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">37 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+  <a href="https://github.com/jmh-gh" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
